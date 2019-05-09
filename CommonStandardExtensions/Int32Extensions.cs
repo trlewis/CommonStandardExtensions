@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace CommonStandardExtensions
+﻿namespace CommonStandardExtensions
 {
+    using System;
+
     public static class Int32Extensions
     {
         /// <summary>
@@ -10,6 +10,9 @@ namespace CommonStandardExtensions
         /// </summary>
         public static int Clamp(this int toClamp, int min, int max)
         {
+            if(max < min)
+                throw new ArgumentException("min cannot be greater than max");
+                
             if (toClamp < min)
                 return min;
             
